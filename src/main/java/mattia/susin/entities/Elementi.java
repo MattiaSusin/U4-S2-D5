@@ -11,12 +11,13 @@ public class Elementi {
 
     //LISTA COSTRUTTORI
 
-    public void Elementi(String isbn, String titolo, int annoPubblicazione, int numeroPagine) {
+    public Elementi(String isbn, String titolo, int annoPubblicazione, int numeroPagine) {
         this.isbn = isbn;
         this.titolo = titolo;
         this.annoPubblicazione = annoPubblicazione;
         this.numeroPagine = numeroPagine;
     }
+
 
     //LISTA METODI
 
@@ -35,6 +36,7 @@ public class Elementi {
     public int getNumeroPagine() {
         return numeroPagine;
     }
+
 
     @Override
     public String toString() {
