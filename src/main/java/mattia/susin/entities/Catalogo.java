@@ -4,6 +4,7 @@ import mattia.susin.exceptions.ElementoException;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.stream.Collectors;
 
 public class Catalogo {
     //LISTA ATTRIBUTI
@@ -48,14 +49,11 @@ public class Catalogo {
     }
 
     public List<Libro> ricercaAutore(String autore) {
-        List<Libro> risultati = new ArrayList<>();
-        for (Elementi e : elementi) {
-            if (e instanceof Libro && ((Libro) e).getAutore().equalsIgnoreCase(autore)) {
-                risultati.add((Libro) e);
-            }
-        }
-        return risultati;
+        return elementi.stream()
+                .filter(e -> e instanceof Libro && ((Libro) e).getAutore().equalsIgnoreCase(autore))
+                .map(e -> (Libro) e)
+                .collect(Collectors.toList());
     }
-
-
 }
+
+    
