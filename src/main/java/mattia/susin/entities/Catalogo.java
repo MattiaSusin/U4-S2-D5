@@ -1,6 +1,7 @@
 package mattia.susin.entities;
 
 import mattia.susin.exceptions.ElementoException;
+import mattia.susin.interfaces.Ricerca;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -54,6 +55,12 @@ public class Catalogo {
                 .map(e -> (Libro) e)
                 .collect(Collectors.toList());
     }
+
+    public List<Elementi> ricerca(Ricerca gestione) {
+        return elementi.stream()
+                .filter(gestione::ricerca)
+                .collect(Collectors.toList());
+    }
 }
 
-    
+
